@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Navigation Bar</title>
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar .nav-links li {
+            margin: 0 15px;
+        }
+
+        .navbar .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar .nav-links li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Image Slider */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Cards Section */
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+        }
+
+        .card {
+            width: 22%;
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            margin: 15px 0;
+            font-size: 20px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">My Website</div>
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Image Slider -->
+<div class="slider-container">
+    <div class="slider">
+        <img src="amg.avif" alt="Image 1" class="slider-image">
+        <img src="amg2.jpg" alt="Image 2" class="slider-image">
+        <img src="amg3.jpg" alt="Image 3" class="slider-image">
+    </div>
+    <button id="nextBtn">Next</button>
+</div>
+
+<!-- Cards Section -->
+<section class="cards">
+    <div class="card">
+        <img src="card 1.webp" alt="Card 1">
+        <h3>Card 1</h3>
+        <p>Description for card 1</p>
+    </div>
+    <div class="card">
+        <img src="card2.webp" alt="Card 2">
+        <h3>Card 2</h3>
+        <p>Description for card 2</p>
+    </div>
+    <div class="card">
+        <img src="card3.webp" alt="Card 3">
+        <h3>Card 3</h3>
+        <p>Description for card 3</p>
+    </div>
+    <div class="card">
+        <img src="card4.avif" alt="Card 4">
+        <h3>Card 4</h3>
+        <p>Description for card 4</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2025 My Website | All rights reserved.</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.slider-image');
+    const nextButton = document.getElementById('nextBtn');
+
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image after the last one
+        const offset = -currentIndex * 100; // Move the slider
+        document.querySelector('.slider').style.transform = `translateX(${offset}%)`;
+    }
+
+    nextButton.addEventListener('click', showNextImage);
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
